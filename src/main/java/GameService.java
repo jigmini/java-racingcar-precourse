@@ -11,4 +11,23 @@ public class GameService {
         }
         return cars;
     }
+
+    public void runRace(Cars cars, int numberOfAttempts) {
+        for (int i = 0; i < numberOfAttempts; i++) {
+            driveCars(cars);
+        }
+    }
+
+    public void driveCars(Cars cars) {
+        for (Car car : cars.getCars()) {
+            calculatePosition(car);
+        }
+    }
+
+    public void calculatePosition(Car car) {
+        int number = GameUtil.generateRandomNumber();
+        if (number >= 4) {
+            car.setPosition(car.getPosition() + 1);
+        }
+    }
 }

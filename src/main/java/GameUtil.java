@@ -1,6 +1,11 @@
 import java.util.InputMismatchException;
+import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * 게임 유틸 클래스
+ * 게임의 부가적인 기능을 제공한다.
+ */
 public class GameUtil {
 
     public static String inputCarNames() {
@@ -20,5 +25,10 @@ public class GameUtil {
             throw new NumberFormatException("숫자 형식이 아닙니다.");
         }
         return number;
+    }
+
+    public static int generateRandomNumber() {
+        Random random = new Random();
+        return random.nextInt(10);
     }
 }
