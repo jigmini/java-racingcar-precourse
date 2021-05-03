@@ -1,3 +1,10 @@
+package service;
+
+import dto.Car;
+import dto.Cars;
+import dto.Position;
+import util.GameUtil;
+
 /**
  * 게임서비스 클래스
  * 자동차 경주 게임의 핵심 로직 담당

@@ -1,3 +1,5 @@
+package dto;
+
 public class CarName {
     private String carName;
 

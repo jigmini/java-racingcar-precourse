@@ -1,3 +1,5 @@
+package dto;
+
 public class Position {
     private int position;
 
