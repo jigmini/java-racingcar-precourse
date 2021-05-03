@@ -2,31 +2,23 @@
  * 자동차 클래스
  */
 public class Car {
-    private String name;
-    private int position;
+    private CarName carName;
+    private Position position;
 
-    public Car(String name) {
-        validateCarNames(name);
-        this.name = name;
-        this.position = 0;
+    public Car(CarName carName) {
+        this.carName = carName;
+        this.position = new Position();
     }
 
-    public String getName() {
-        return name;
+    public CarName getCarName() {
+        return carName;
     }
 
-    public int getPosition() {
+    public Position getPosition() {
         return position;
     }
 
-    public void setPosition(int position) {
-        this.position = position;
-    }
-
-    public void validateCarNames(String name) {
-        if (name == null || name.length() == 0 || name.length() > 5) {
-            System.out.println("유효하지 않은 자동차 이름입니다.");
-            throw new IllegalArgumentException("유효하지 않은 자동차 이름입니다.");
-        }
+    public void moveForward() {
+        position.addPosition();
     }
 }

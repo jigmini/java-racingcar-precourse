@@ -7,7 +7,7 @@ public class GameService {
     public Cars generateCars(String carNames) {
         Cars cars = new Cars();
         for (String carName : carNames.split(",")) {
-            cars.addCar(new Car(carName));
+            cars.addCar(new Car(new CarName(carName)));
         }
         return cars;
     }
@@ -27,7 +27,7 @@ public class GameService {
     public void calculatePosition(Car car) {
         int number = GameUtil.generateRandomNumber();
         if (number >= 4) {
-            car.setPosition(car.getPosition() + 1);
+            car.moveForward();
         }
     }
 }
