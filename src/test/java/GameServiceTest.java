@@ -16,4 +16,10 @@ public class GameServiceTest {
             assertThat(car).isInstanceOf(Car.class);
         }
     }
+
+    @Test
+    @DisplayName("자동차 이름 유효성 테스트")
+    public void validateCarNameTest() {
+        assertThatIllegalArgumentException().isThrownBy(() -> gameService.generateCars("hello,xxxxxxx")).withMessage("유효하지 않은 자동차 이름입니다.");
+    }
 }
