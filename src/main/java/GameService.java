@@ -6,12 +6,8 @@ public class GameService {
 
     public Cars generateCars(String carNames) {
         Cars cars = new Cars();
-        try {
-            for (String carName : carNames.split(",")) {
-                cars.addCar(new Car(carName));
-            }
-        } catch (IllegalArgumentException e) {
-            cars = null;
+        for (String carName : carNames.split(",")) {
+            cars.addCar(new Car(carName));
         }
         return cars;
     }

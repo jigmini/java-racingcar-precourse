@@ -10,8 +10,10 @@ public class RacingCarGame {
 
     public void start() {
         while (true) {
-            Cars cars = gameService.generateCars(GameUtil.inputCarNames());
-            if (cars == null) {
+            try {
+                Cars cars = gameService.generateCars(GameUtil.inputCarNames());
+                int numberOfAttempts = GameUtil.inputNumberOfAttempts();
+            } catch (IllegalArgumentException e) {
                 continue;
             }
         }
