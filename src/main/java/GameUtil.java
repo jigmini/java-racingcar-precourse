@@ -14,6 +14,14 @@ public class GameUtil {
         return scanner.next();
     }
 
+    public static Cars generateCars(String carNames) {
+        Cars cars = new Cars();
+        for (String carName : carNames.split(",")) {
+            cars.addCar(new Car(new CarName(carName)));
+        }
+        return cars;
+    }
+
     public static int inputNumberOfAttempts() {
         System.out.println("시도할 회수는 몇회인가요?");
         Scanner scanner = new Scanner(System.in);
@@ -30,5 +38,15 @@ public class GameUtil {
     public static int generateRandomNumber() {
         Random random = new Random();
         return random.nextInt(10);
+    }
+
+    public static void outputCarPosition(Car car) {
+        System.out.print(car.getCarName().getCarName() + " : ");
+        int position = car.getPosition().getPosition();
+        while (position > 0) {
+            System.out.print("-");
+            position--;
+        }
+        System.out.println();
     }
 }

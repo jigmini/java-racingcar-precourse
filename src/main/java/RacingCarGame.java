@@ -11,10 +11,12 @@ public class RacingCarGame {
     public void start() {
         while (true) {
             try {
-                Cars cars = gameService.generateCars(GameUtil.inputCarNames());
+                String carNames = GameUtil.inputCarNames();
+                Cars cars = GameUtil.generateCars(carNames);
                 int numberOfAttempts = GameUtil.inputNumberOfAttempts();
-            } catch (IllegalArgumentException e) {
-                continue;
+                gameService.runRace(cars, numberOfAttempts);
+                break;
+            } catch (IllegalArgumentException ignored) {
             }
         }
     }

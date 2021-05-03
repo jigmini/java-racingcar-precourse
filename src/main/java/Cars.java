@@ -18,4 +18,26 @@ public class Cars {
     public void addCar(Car car) {
         cars.add(car);
     }
+
+    public Cars matchPosition(Position position) {
+        Cars matchCars = new Cars();
+        for (Car car : cars) {
+            if (car.getPosition().getPosition() == position.getPosition()) {
+                matchCars.addCar(car);
+            }
+        }
+        return matchCars;
+    }
+
+    public int getCount() {
+        return cars.size();
+    }
+
+    public Position getMaxPosition() {
+        int maxPosition = 0;
+        for (Car car : cars) {
+            maxPosition = Math.max(car.getPosition().getPosition(), maxPosition);
+        }
+        return new Position(maxPosition);
+    }
 }

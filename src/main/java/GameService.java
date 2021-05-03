@@ -4,24 +4,20 @@
  */
 public class GameService {
 
-    public Cars generateCars(String carNames) {
-        Cars cars = new Cars();
-        for (String carName : carNames.split(",")) {
-            cars.addCar(new Car(new CarName(carName)));
-        }
-        return cars;
-    }
-
     public void runRace(Cars cars, int numberOfAttempts) {
+        System.out.println("실행 결과");
         for (int i = 0; i < numberOfAttempts; i++) {
             driveCars(cars);
         }
+        determineWinner(cars);
     }
 
     public void driveCars(Cars cars) {
         for (Car car : cars.getCars()) {
             calculatePosition(car);
+            GameUtil.outputCarPosition(car);
         }
+        System.out.println();
     }
 
     public void calculatePosition(Car car) {
@@ -29,5 +25,18 @@ public class GameService {
         if (number >= 4) {
             car.moveForward();
         }
+    }
+
+    public void determineWinner(Cars cars) {
+        Position maxPosition = cars.getMaxPosition();
+        Cars winCars = cars.matchPosition(maxPosition);
+        int winnerCount = winCars.getCount();
+        for (int i = 0; i < winnerCount; i++) {
+            System.out.print(winCars.getCars().get(i).getCarName());
+            if (i < winnerCount - 1) {
+                System.out.print(", ");
+            }
+        }
+        System.out.println("가 최종 우승했습니다.");
     }
 }
